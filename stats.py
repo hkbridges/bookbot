@@ -13,3 +13,17 @@ def count_characters(words_list):
             else:
                 character_dict[characters] += 1
     return character_dict
+
+def get_character_dict_list(character_dict):
+    character_dict_list = []
+    for character, count in character_dict.items():
+        character_dict_individual = {"char": character, "num": count}
+        character_dict_list.append(character_dict_individual)
+    return character_dict_list
+
+def sort_by_num(items):
+    return items["num"]
+
+def sort_character_dict_list(character_dict_list):
+    character_dict_list.sort(reverse=True,key=sort_by_num)
+    return character_dict_list
