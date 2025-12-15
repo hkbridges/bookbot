@@ -27,3 +27,15 @@ def sort_by_num(items):
 def sort_character_dict_list(character_dict_list):
     character_dict_list.sort(reverse=True,key=sort_by_num)
     return character_dict_list
+def print_report (path, word_count, sorted_character_dict_list):
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path}...")
+    print("----------- Word Count ----------")
+    print(f"Found {word_count} total words")
+    print("--------- Character Count -------")
+    for dict in sorted_character_dict_list:
+        if not dict["char"].isalpha():
+            continue
+        else:
+            print(f"{dict["char"]}: {dict["num"]}")
+    print("============= END ===============")

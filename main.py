@@ -1,5 +1,5 @@
 import sys
-from stats import count_words, count_characters, get_character_dict_list, sort_character_dict_list
+from stats import count_words, count_characters, get_character_dict_list, sort_character_dict_list, print_report
 
 
 def get_book_text(file_path):
@@ -18,17 +18,6 @@ def main():
     character_dict_list = get_character_dict_list(character_count)
     sorted_character_dict_list = sort_character_dict_list(character_dict_list)
     pathstr = str(path)
-    print("============ BOOKBOT ============")
-    print(f"Analyzing book found at {path}...")
-    print("----------- Word Count ----------")
-    print(f"Found {word_count} total words")
-    print("--------- Character Count -------")
-    for dict in sorted_character_dict_list:
-        if not dict["char"].isalpha():
-            continue
-        else:
-            print(f"{dict["char"]}: {dict["num"]}")
-    print("============= END ===============")
-
+    print_report(path, word_count, sorted_character_dict_list)
 
 main()
